@@ -8,10 +8,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -25,20 +23,28 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.firstproject.components.VerticalSpacer
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Screen()
+            MenuScreen()
         }
     }
 }
 
+
 @Composable
-fun Screen() {
+fun MenuScreen() {
+
     val myColor = Color(0xC92E1BF6)
     Box(
         modifier = Modifier.fillMaxSize()
@@ -85,9 +91,9 @@ fun Screen() {
             VerticalSpacer(height = 16.dp)
 
             Button(
+                modifier = Modifier.fillMaxWidth(0.75f),
                 onClick = { },
                 colors = ButtonDefaults.buttonColors(myColor),
-                modifier = Modifier.fillMaxWidth(0.75f)
             ) {
                 Text(
                     text = "Settings",
@@ -100,8 +106,25 @@ fun Screen() {
     }
 }
 
+@Composable
+fun SettingScreen() {
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            painter = painterResource(id = R.drawable.imageforsettingsscreen),
+            contentDescription = null,
+            contentScale = ContentScale.Crop
+        )
+    }
+}
+
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Screen()
+    SettingScreen()
 }
