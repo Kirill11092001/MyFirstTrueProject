@@ -50,7 +50,7 @@ fun RegisterScreen() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.64f),
+                .fillMaxHeight(),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -193,9 +193,9 @@ fun RegisterScreen() {
                 )
             )
 
-            VerticalSpacer(height = 40.dp)
+            VerticalSpacer(height = 46.dp)
             Button(
-                modifier = Modifier.fillMaxWidth(0.5f),
+                modifier = Modifier.fillMaxWidth(0.5f).fillMaxHeight(0.16f),
                 onClick = { },
                 colors = ButtonDefaults.buttonColors(winBlue)
             ) {
