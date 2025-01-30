@@ -28,15 +28,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.firstproject.R
+import com.example.firstproject.ScreensNamesForNav
 import com.example.firstproject.components.VerticalSpacer
 
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navController: NavController) {
     val winOrange = Color(0xFFD05708)
     val winBlue = Color(0xFF098DD0)
     Box(modifier = Modifier.fillMaxSize()) {
@@ -195,8 +196,15 @@ fun RegisterScreen() {
 
             VerticalSpacer(height = 46.dp)
             Button(
-                modifier = Modifier.fillMaxWidth(0.5f).fillMaxHeight(0.16f),
-                onClick = { },
+                modifier = Modifier
+                    .fillMaxWidth(0.5f)
+                    .fillMaxHeight(0.16f),
+                onClick = {
+                    navController.popBackStack()
+                    navController.navigate(
+                        route = ScreensNamesForNav.MenuScreen.route
+                    )
+                },
                 colors = ButtonDefaults.buttonColors(winBlue)
             ) {
                 Text(
@@ -213,8 +221,8 @@ fun RegisterScreen() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingRegisterPreview() {
-    RegisterScreen()
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingRegisterPreview() {
+//    RegisterScreen()
+//}

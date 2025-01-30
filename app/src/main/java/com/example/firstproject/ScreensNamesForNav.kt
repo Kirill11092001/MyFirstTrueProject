@@ -6,5 +6,7 @@ sealed class ScreensNamesForNav(val route: String) {
     object AnalyticScreen : ScreensNamesForNav("analyticScreen")
     object TrainingScreen : ScreensNamesForNav("trainingScreen")
     object FlashScreen : ScreensNamesForNav("flashScreen")
+    object RegisterScreen : ScreensNamesForNav("registerScreen")
+
 
 }

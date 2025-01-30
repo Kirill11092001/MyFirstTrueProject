@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.firstproject.screens.AnalyticScreen
 import com.example.firstproject.screens.FlashScreen
 import com.example.firstproject.screens.MenuScreen
+import com.example.firstproject.screens.RegisterScreen
 import com.example.firstproject.screens.SettingScreen
 import com.example.firstproject.screens.TrainingScreen
 
@@ -42,6 +43,13 @@ fun NavigationGraph(navController: NavHostController) {
             route = ScreensNamesForNav.TrainingScreen.route
         ) {
             TrainingScreen()
+        }
+        composable(
+            route = ScreensNamesForNav.RegisterScreen.route
+        ) {
+            RegisterScreen(
+                navController = navController
+            )
         }
     }
 }

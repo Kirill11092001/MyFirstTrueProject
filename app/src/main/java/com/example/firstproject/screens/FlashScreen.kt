@@ -11,13 +11,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.example.firstproject.R
 import com.example.firstproject.ScreensNamesForNav
-import kotlin.concurrent.timer
 
 private var timer: CountDownTimer? = null
 
 @Composable
 fun FlashScreen(navController: NavController) {
-    startTimer(navController = navController)
+
+    startTimer(navController = navController, isRegistered = false)
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -29,7 +29,8 @@ fun FlashScreen(navController: NavController) {
         )
     }
 }
-private fun startTimer(navController: NavController) {
+
+private fun startTimer(navController: NavController, isRegistered: Boolean) {
     timer = object : CountDownTimer(
         3000L,
         1000L
@@ -39,11 +40,18 @@ private fun startTimer(navController: NavController) {
 
         override fun onFinish() {
             navController.popBackStack()
-            navController.navigate(
-                route = ScreensNamesForNav.MenuScreen.route
-            )
-        }
+            if (isRegistered) {
 
+                navController.navigate(
+                    route = ScreensNamesForNav.MenuScreen.route
+                )
+            } else {
+
+                navController.navigate(
+                    route = ScreensNamesForNav.RegisterScreen.route
+                )
+            }
+        }
     }
     timer?.start()
 }
